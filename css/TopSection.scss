@@ -1,0 +1,130 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 1fr;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "area-1 area-1 area-3"
+    "area-1 area-1 area-3"
+    "area-2 area-5 area-4";
+  width: 100%;
+  height: 100vh; /* Adjust height to account for the NavBar height */
+  padding: 10px; /* Optional: Add padding to avoid touching the edges */
+  box-sizing: border-box; /* Ensure padding is included in the total width and height */
+  background-color: #f2f0e9;
+}
+
+.area-1, .area-2, .area-3, .area-4, .area-5 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+  transition: transform 0.1s ease; /* Add transition for smooth scaling */
+}
+
+.area-1:hover, .area-2:hover, .area-3:hover, .area-4:hover, .area-5:hover {
+  transform: scale(1.01); /* Scale up the div on hover */
+}
+.area-1 img, .area-2 img, .area-3 img, .area-4 img, .area-5 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the full image is visible */
+  border-radius: 8px; /* Add border radius to the image */
+}
+
+
+.area-1 { 
+  grid-area: area-1;
+}
+
+.area-2 { 
+  grid-area: area-2;
+  background: radial-gradient(circle, #49596b, #1c2838, #0f1724);
+}
+
+.area-3 { 
+  grid-area: area-3;
+  background: radial-gradient(circle, #49596b, #5ebd3e, #154734);
+}
+
+.area-4 { 
+  grid-area: area-4;
+  background: radial-gradient(circle, #49596b, #c44d58, #ff7e67);
+}
+
+.area-5 {
+  grid-area: area-5;
+  background: 
+    url('/images/PenAndPaper.svg') no-repeat center, /* SVG on top */
+    radial-gradient(circle, #49596b, #715aff, #2a1f4d); /* Gradient below */
+  background-size: contain, cover; /* SVG stays contained, gradient covers */
+}
+
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: flex-start; /* Align items to the start of the flex container */
+  justify-content: flex-end; /* Push items to the bottom */
+  color: white;
+  font-weight: 900;
+  font-size: 32px;
+  text-align: left; /* Align text to the left */
+  padding-left: 20px; /* Optional: Add padding to the left */
+  padding-bottom: 20px; /* Optional: Add padding to the bottom */
+  position: absolute;
+}
+
+.placeholder h1 {
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+.placeholder p {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 0px; /* Decrease margin to reduce gap */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .placeholder {
+    font-size: 24px;
+    padding: 10px;
+  }
+
+  .placeholder h1 {
+    font-size: 28px;
+    line-height: 1.2; /* Adjust line height */
+  }
+
+  .placeholder p {
+    font-size: 16px;
+    margin-top: 5px; /* Decrease margin to reduce gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .placeholder {
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  .placeholder h1 {
+    font-size: 22px;
+    line-height: 1.2; /* Adjust line height */
+  }
+
+  .placeholder p {
+    font-size: 14px;
+    margin-top: 1px; /* Decrease margin to reduce gap */
+  }
+}
